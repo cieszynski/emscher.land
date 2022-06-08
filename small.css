@@ -1,0 +1,78 @@
+body {
+    top: 0;
+    left: 0;
+    position: relative;
+    transition: top .3s, left .3s;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 6px;
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+    background: url(hamburger.svg) no-repeat;
+    cursor: pointer;
+}
+
+body:focus {
+    top: 100px;
+    left: -300px;
+    overflow: hidden;
+}
+
+body:focus::after {
+    background: url(cross.svg) no-repeat;
+    pointer-events: none;
+}
+
+footer ul {
+    flex-direction: column;
+}
+
+nav ul {
+    top: 0;
+    left: 0;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    pointer-events: none;
+    font-size: 2.4rem;
+}
+
+nav ul li {
+    transition: width .3s, text-indent .3s;
+    overflow: hidden;
+    width: 0px;
+    text-align: right;
+    text-indent: -300px;
+    pointer-events: all;
+}
+
+nav ul li a {
+    display: inline-block;
+    margin: 8px 32px;
+}
+
+body:focus nav ul li {
+    width: 300px;
+    text-indent: 0px;
+}
+
+nav ul li:first-of-type a::before {
+    position: fixed;
+    transition: top .3s, left .3s;
+}
+
+body:focus nav::before {
+    top: 0px;
+    left: -300px;
+}
+
+body:focus nav ul li:first-of-type a::before {
+    top: 100px;
+    left: -284px;
+}

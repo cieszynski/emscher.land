@@ -1,0 +1,23 @@
+nav ul {
+    justify-content: flex-end;
+    align-items: flex-end;
+    max-width: 900px;
+    margin: auto;
+    position: relative;
+}
+
+nav ul li a {
+    font-size: 1.6rem;
+    margin-left: 24px;
+    margin-bottom: 6px;
+    display: inline-block;
+}
+
+nav ul li:first-of-type a::before {
+    position: absolute;
+    top: 0;
+}
+
+section>ul {
+    grid-template-columns: 1fr 1fr 1fr;
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+    <rect x="0" y="0" width="1920" height="1080" fill="#5c3c95" />
+    <rect x="900" y="480" width="120" height="120" fill="green" stroke="yellow" stroke-width="10">
+        <animateTransform attributeName="transform" type="rotate" from="0 960 540" to="360 960 540" dur="12s" repeatCount="indefinite"/>
+    </rect>
+</svg>
