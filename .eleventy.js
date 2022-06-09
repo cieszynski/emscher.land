@@ -10,7 +10,7 @@ async function imageShortcode(src, alt, sizes) {
 
   let imageAttributes = {
     alt,
-    sizes: "(max-width: 300px),(max-width: 600px), 100vw",
+    sizes: "(min-width: 300px),(min-width: 600px), 100vw",
     loading: "lazy",
     decoding: "async",
   };
