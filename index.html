@@ -246,9 +246,9 @@ title: EMSCHER.LAND
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             <img src="/assets/img/header.svg" alt="" />
         </header>
-        <div>
-            {% image "./assets/img/1920x1440.jpg", "photo of my cat", "300px, 600px, 900px" %}
-        </div>
+        <!--         <div>
+            {% image "./assets/img/1920x1440.jpg", "photo of my cat", "100vw" %}
+        </div> -->
         <section>
             <h2><a href="#ueberschrift">Überschrift</a></h2>
             <ul>
@@ -260,12 +260,7 @@ title: EMSCHER.LAND
                             </h3>
                             <p>headline</p>
                         </header>
-                        <picture>
-                            <img loading="lazy"
-                                title="Eine Passantin geht an einer verhüllten und verpackten Statue vorbei."
-                                alt="Eine Passantin geht an einer verhüllten und verpackten Statue vorbei."
-                                src="/assets/img/1920x1440.jpg">
-                        </picture>
+                        {% image "./assets/img/1920x1440.jpg", "photo of my cat", "100vw" %}
                     </article>
                 </li>
                 <li>
