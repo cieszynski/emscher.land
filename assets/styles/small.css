@@ -24,7 +24,7 @@ body:focus {
 }
 
 body:focus::after {
-    background: url(cross.svg) no-repeat;
+    background: url(/assets/img/cross.svg) no-repeat;
     pointer-events: none;
 }
 
