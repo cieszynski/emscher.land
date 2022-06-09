@@ -1,0 +1,6 @@
+{
+    "name": "baz",
+    "dependencies": {
+        "@11ty/eleventy-img": "^2.0.1"
+    }
+}
