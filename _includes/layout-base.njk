@@ -6,9 +6,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="{{ description }}" />
-
-    <link rel="preload" href="/assets/fonts/fjallaone-regular.woff" as="font" type="font/woff" />
-    <link rel="preload" href="/assets/fonts/celebes-regular.woff" as="font" type="font/woff" />
+    <link rel="preload" href="/assets/fonts/fjallaone-regular.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/assets/fonts/celebes-regular.woff" as="font" type="font/woff" crossorigin />
     <link rel="stylesheet" href="/assets/styles/main.css" />
     <link rel="stylesheet" href="/assets/styles/small.css" media="screen and (max-width: 899px)" />
     <link rel="stylesheet" href="/assets/styles/large.css" media="screen and (min-width: 900px)" />
@@ -17,11 +16,12 @@
 <body tabindex="-1">
     <main tabindex="0">
         <header>
-            <h1>{{ header | striptags(true) | escape | nl2br}}</h1>
+            <h1>{{ header | striptags(true) | escape | nl2br }}</h1>
             <p>{{ subheader | striptags(true) | escape | nl2br }}</p>
-            <img src="{{ image | safe}}" alt="{{ imagetext }}" />
+            <img src="{{ image | safe }}" alt="{{ imagetext }}" />
         </header>
         {{ content | safe }}
+        {% include "layout-aside.njk" %}
         {% include "layout-footer.njk" %}
     </main>
     {% include "layout-nav.njk" %}

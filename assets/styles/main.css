@@ -131,8 +131,9 @@ main {
     z-index: 0;
 }
 
-main>header,
+main>aside,
 main>article,
+main>header,
 main>section {
     width: 100%;
     max-width: 900px;
@@ -205,7 +206,7 @@ picture::before {
     padding-top: 75%;
     content: "";
 }
-
+aside>ul,
 section>ul {
     padding: 8px 16px;
     display: grid;
@@ -214,6 +215,7 @@ section>ul {
 }
 
 @media screen and (min-width: 500px) {
+    aside>ul,
     section>ul {
         grid-template-columns: 1fr 1fr;
     }

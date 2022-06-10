@@ -18,6 +18,7 @@ nav ul li:first-of-type a::before {
     top: 0;
 }
 
+aside>ul,
 section>ul {
     grid-template-columns: 1fr 1fr 1fr;
 }

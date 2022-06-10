@@ -6,7 +6,7 @@ const path = require("path");
 async function imageShortcode(src, alt, sizes) {
   let metadata = await Image(src, {
     widths: [480, 800, null],
-    formats: ["webp", "avif", "png", "jpeg", "svg"],
+    formats: ["webp", "png", "jpeg", "svg"],
     urlPath: "/assets/img/",
     outputDir: "./_site/assets/img/"
   });
@@ -31,6 +31,19 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLiquidShortcode("image", imageShortcode);
   eleventyConfig.addJavaScriptFunction("image", imageShortcode);
 
+  eleventyConfig.addCollection("categories", function (collectionApi) {
+    return collectionApi.getFilteredByTag("category");
+  });
+
+  eleventyConfig.addCollection("bydate", function (collectionApi) {
+    return collectionApi.getAll().filter(function (item) {
+      // return only posts:
+      return /_pages/.test(item.data.page.inputPath);
+    }).sort(function (a, b) {
+      return b.date - a.date; // sort by date - descending
+    });
+  });
+
   eleventyConfig.addTransform("prettier", function (content, outputPath) {
     const extname = path.extname(outputPath);
     switch (extname) {
@@ -38,10 +51,15 @@ module.exports = function (eleventyConfig) {
       case ".json":
         // Strip leading period from extension and use as the Prettier parser.
         const parser = extname.replace(/^./, "");
-        return prettier.format(content, { parser:parser, tabWidth:4 });
+        return prettier.format(content, { parser: parser, tabWidth: 4 });
 
       default:
         return content;
     }
   });
+
+  return {
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk"
+  }
 };

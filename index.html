@@ -8,19 +8,22 @@ image: "/assets/img/header.svg"
 imagetext: "alt ist kein text"
 permalink: index.html
 ---
+
 <section>
-    <h2><a href="#ueberschrift">Überschrift</a></h2>
+    <h2>Themen</h2>
     <ul>
-        <li>
-            <article>
-                <header>
-                    <h3>
-                        <a href="#article">article</a>
-                    </h3>
-                    <p>headline</p>
-                </header>
-                {% image "./assets/img/1920x1440.jpg", "photo of my cat" %}
-            </article>
-        </li>
+        {%- for category in collections.categories -%}
+            <li>
+                <article>
+                    <header>
+                        <h3>
+                            <a href="{{ category.url }}">{{ category.data.title }}</a>
+                        </h3>
+                        <p>{{ category.data.subheader }}</p>
+                    </header>
+                    {% image category.data.image, category.data.imagetext %}
+                </article>
+            </li>
+        {%- endfor -%}
     </ul>
 </section>
