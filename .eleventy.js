@@ -46,11 +46,13 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addTransform("prettier", function (content, outputPath) {
     const extname = path.extname(outputPath);
+    console.log(extname)
     switch (extname) {
       case ".html":
       case ".json":
         // Strip leading period from extension and use as the Prettier parser.
         const parser = extname.replace(/^./, "");
+        console.log("OK")
         return prettier.format(content, { parser: parser, tabWidth: 4 });
 
       default:
