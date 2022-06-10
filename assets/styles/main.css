@@ -1,0 +1,224 @@
+@font-face {
+    font-family: 'fjallaone-regular';
+    src: url('/assets/fonts/fjallaone-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'celebes-regular';
+    src: url('/assets/fonts/celebes-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+article {
+    position: relative;
+}
+
+article>header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(to bottom,
+            transparent,
+            transparent 30%,
+            rgba(0, 0, 0, 1));
+    padding: 8px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+body {
+    font-size: 1.8rem;
+}
+
+footer {
+    background-color: #1e202d;
+    color: #aaaaab;
+    height: 165px;
+    font-size: 1.6rem;
+}
+
+footer ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+footer ul li {
+    margin: 8px;
+}
+
+h1 {
+    font-family: 'fjallaone-regular';
+    font-size: 3rem;
+    padding: 16px;
+}
+
+h2 {
+    font-family: 'fjallaone-regular';
+    font-size: 2.2rem;
+    padding: 16px;
+    background: linear-gradient(to bottom,
+            transparent 0,
+            transparent 68%,
+            red 68%,
+            red 100%);
+    background-clip: content-box;
+    display: inline-block;
+}
+
+h3 {
+    font-family: 'fjallaone-regular';
+    font-size: 1.8rem;
+}
+
+h3>a::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+h3~p {
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'celebes-regular', sans-serif;
+    height: 100%;
+    color: #fff;
+    background-color: #e05453;
+}
+
+img {
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+main {
+    background-color: #0c0d18;
+    position: relative;
+    z-index: 0;
+}
+
+main>header,
+main>article,
+main>section {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+main>header {
+    height: 80vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main>header>img {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100vw;
+    height: inherit;
+    min-height: inherit;
+    object-fit: cover;
+    z-index: -1;
+}
+
+nav {
+    top: 0;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+}
+
+nav::before {
+    content: "";
+    position: fixed;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, #e05453, #e05453 100px, rgba(31, 33, 46, 0.85) 100px, rgba(31, 33, 46, 0.85));
+    transition: top .3s, left .3s;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+}
+
+nav ul li:first-of-type a::before {
+    content: "";
+    top: 0;
+    left: 16px;
+    width: 170px;
+    height: 50px;
+    background: url(/assets/img/logo.svg) no-repeat;
+}
+
+p {
+    padding: 8px 16px;
+    font-size: 1.8rem;
+    text-align: justify;
+}
+
+picture::before {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding-top: 75%;
+    content: "";
+}
+
+section>ul {
+    padding: 8px 16px;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 500px) {
+    section>ul {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+ul {
+    list-style: none;
+}

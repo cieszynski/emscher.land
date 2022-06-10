@@ -1,4 +1,7 @@
 const Image = require("@11ty/eleventy-img");
+const prettier = require("prettier");
+const path = require("path");
+
 
 async function imageShortcode(src, alt, sizes) {
   let metadata = await Image(src, {
@@ -27,4 +30,18 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   eleventyConfig.addLiquidShortcode("image", imageShortcode);
   eleventyConfig.addJavaScriptFunction("image", imageShortcode);
+
+  eleventyConfig.addTransform("prettier", function (content, outputPath) {
+    const extname = path.extname(outputPath);
+    switch (extname) {
+      case ".html":
+      case ".json":
+        // Strip leading period from extension and use as the Prettier parser.
+        const parser = extname.replace(/^./, "");
+        return prettier.format(content, { parser:parser, tabWidth:4 });
+
+      default:
+        return content;
+    }
+  });
 };
